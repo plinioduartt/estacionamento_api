@@ -1,0 +1,32 @@
+version: "3"
+
+services:  
+
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: adonis migration:run
+    command: npm start
+    ports:
+      - "3333:3333"
+    volumes: 
+      - .:/usr/app/estacionamento
+    depends_on:
+      - "mysql"  
+    links:
+      - "mysql"
+  
+  # Necessário executar um FLUSH PRIVILEGES no bash do mysql;
+  mysql:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: db_estaciona
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
+    volumes:
+      - .:/usr/app/mysql
+    
