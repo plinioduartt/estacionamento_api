@@ -14,6 +14,10 @@ class Ticket extends Model {
         return this.belongsTo('App/Models/Bill');
     }
 
+    vacancy() {
+        return this.belongsTo('App/Models/Vacancy');
+    }
+
 }
 
 module.exports = Ticket

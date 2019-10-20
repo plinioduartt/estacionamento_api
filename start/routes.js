@@ -34,11 +34,16 @@ Route.get('/tickets', 'App/Controllers/Http/TicketController.index');
 Route.get('/tickets/:id', 'App/Controllers/Http/TicketController.show');
 Route.post('/tickets', 'App/Controllers/Http/TicketController.store');
 Route.put('/tickets/:id', 'App/Controllers/Http/TicketController.update');
+Route.put('/close-tickets/:id', 'App/Controllers/Http/TicketController.close');
 
-Route.get('/bills', 'App/Controllers/Http/BillController.index');
+Route.get('/bills/ticket/:id', 'App/Controllers/Http/BillController.by_tickets');
+Route.get('/bills/:id', 'App/Controllers/Http/BillController.index');
 Route.get('/bills/:id', 'App/Controllers/Http/BillController.show');
 Route.post('/bills', 'App/Controllers/Http/BillController.store');
 Route.put('/bills/:id', 'App/Controllers/Http/BillController.update');
 
+
+Route.get('/vacancies', 'App/Controllers/Http/TicketController.vacancies');
+Route.put('/vacancies/:id', 'App/Controllers/Http/TicketController.update_vacancies');
 
 Route.post('/auth', 'App/Controllers/Http/AuthController.auth');

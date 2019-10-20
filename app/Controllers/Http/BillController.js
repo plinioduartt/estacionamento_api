@@ -2,12 +2,11 @@
 const Bill = use('App/Models/Bill');
 
 class BillController {
-    async index({ request, response }) {
+    async index({ params, request, response }) {
         const bills = await Bill.query()
         .with('users')
-        .with('tickets')
+        .with('tickets').where('user_id', params.id)
         .fetch();
-        console.log(bills)
         response.status(200).json({ bills: bills });
     }
 
@@ -50,7 +49,12 @@ class BillController {
 
     async my_bill({ params, request, response }) {
         const bill = await Bill.query().with('users').where('id', params.id).fetch();
-        return response.status(200).json({ bill: bill })
+        return response.status(200).json({ bill: bill });
+    }
+
+    async by_tickets({ params, request, response }) {
+        const bill = await Bill.query().with('users').with('tickets').where('ticket_id', params.id).first();
+        return response.status(200).json({ bill: bill });
     }
 }
 
