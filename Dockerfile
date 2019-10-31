@@ -4,8 +4,8 @@ WORKDIR /usr/app/estacionamento
 
 COPY package*.json ./
 
-RUN npm install
 RUN npm i -g @adonisjs/cli
+RUN adonis migration:run
 
 COPY . .
 

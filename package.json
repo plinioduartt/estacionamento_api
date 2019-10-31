@@ -5,7 +5,7 @@
   "description": "Adonisjs boilerplate for API server with pre-configured JWT",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development nodemon server.js",
+    "start": "nodemon server.js",
     "test": "node ace test",
     "run": "adonis migration:run"
   },
@@ -26,7 +26,7 @@
     "@adonisjs/ignitor": "^2.0.8",
     "@adonisjs/lucid": "^6.1.3",
     "mysql": "^2.17.1",
-    "nodemon": "^1.19.3",
+    "nodemon": "^1.19.4",
     "sqlite3": "^4.1.0"
   },
   "devDependencies": {},

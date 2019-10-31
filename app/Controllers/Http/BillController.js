@@ -6,6 +6,7 @@ class BillController {
         const bills = await Bill.query()
         .with('users')
         .with('tickets').where('user_id', params.id)
+        .orderBy('bills.id', 'desc')
         .fetch();
         response.status(200).json({ bills: bills });
     }
