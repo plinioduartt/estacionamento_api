@@ -21,7 +21,7 @@ class TicketController {
     async store({ request, response }) {
         const data = request.body;
 
-        var anysize = 3;//the size of string 
+        var anysize = 5;//the size of string 
         var charset = "abcdefghijklmnopqrstuvwxyz0123456789"; //from where to create
         let result="";
         for( var i=0; i < anysize; i++ )
