@@ -22,6 +22,9 @@ class VacancySeeder {
     //   });
     //   vacancy.save();
     // }
+
+    await Vacancy.query().delete();
+
     await Vacancy.create({
       code: 'A1',
       status: 'Ativo'
@@ -32,6 +35,10 @@ class VacancySeeder {
     });
     await Vacancy.create({
       code: 'A3',
+      status: 'Ativo'
+    });
+    await Vacancy.create({
+      code: 'A4',
       status: 'Ativo'
     });
     await Vacancy.create({
@@ -46,6 +53,11 @@ class VacancySeeder {
       code: 'B3',
       status: 'Ativo'
     });
+    await Vacancy.create({
+      code: 'B4',
+      status: 'Ativo'
+    });   
+
   }
 }
 
